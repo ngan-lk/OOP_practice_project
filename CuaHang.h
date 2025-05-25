@@ -14,7 +14,7 @@ public:
 	void Doc(FILE* file);
 	void Xuat();
 	void Xoa(FILE* file, FILE* file_temp, int loai);
-	void Sua();
-	void TimKiem();
+	void Sua(FILE* file, FILE* file_temp, int loai);
+	void TimKiem(FILE* file, int loai);
 };
 

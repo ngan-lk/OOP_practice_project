@@ -17,5 +17,6 @@ public:
 	void Xoa(FILE* fileMatHang, FILE* file_temp);
 	bool Them(FILE* fileMatHang);
 	void Sua(FILE* fileMatHang, FILE* file_temp);
+	void TimKiem(FILE* fileMatHang);
 };
 

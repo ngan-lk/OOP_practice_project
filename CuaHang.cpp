@@ -85,11 +85,27 @@ void CuaHang::Xoa(FILE* file, FILE* file_temp, int loai) {
 	}
 }
 
-void CuaHang::Sua() {
-
+void CuaHang::Sua(FILE* file, FILE* file_temp, int loai) {
+	BaseObject* doiTuongSua;
+	if (loai == 1) {
+		doiTuongSua = new MatHang();
+		doiTuongSua->Sua(file, file_temp);
+	}
+	else if (loai == 2) {
+		doiTuongSua = new LoaiHang();
+		doiTuongSua->Sua(file, file_temp);
+	}
 }
 
-void CuaHang::TimKiem() {
-
+void CuaHang::TimKiem(FILE* file, int loai) {
+	BaseObject* doiTuongTimKiem;
+	if (loai == 1) {
+		doiTuongTimKiem = new MatHang();
+		doiTuongTimKiem->TimKiem(file);
+	}
+	else if (loai == 2) {
+		doiTuongTimKiem = new LoaiHang();
+		doiTuongTimKiem->TimKiem(file);
+	}
 }
 

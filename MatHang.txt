@@ -1,14 +1,14 @@
 MH001
 Mi tom Hao Hao
-30 / 12 / 2023
+30/12/2023
 Acecook
 L001
 2023
 100
 MH002
-Nuoc ngot Coca Cola
-30 / 06 / 2024
+Nuoc ngot coca cola khong duong
+30/06/2024
 Coca Cola
 L002
 2023
-50
+20

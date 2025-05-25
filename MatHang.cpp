@@ -184,13 +184,13 @@ void MatHang::Sua(FILE* fileMatHang, FILE* file_temp) {
 				char confirm;
 				int choice;
 				found = 1;
-				printf("\nBan dang sua thong tin ma hang [%s - %s]", id_file, tenHang);
-				printf("Ten hang:\t\t%s\n", tenHang);
-				printf("Han dung:\t\t%s\n", hanDung);
-				printf("Cong ty san xuat:\t%s\n", congTySanXuat);
-				printf("Loai hang:\t\t%s\n", loaiHang);
-				printf("Nam san xuat:\t\t%d\n", namSanXuat);
-				printf("So luong:\t\t%d\n", soLuong);
+				printf("\nBan dang sua thong tin mat hang [%s - %s]\n", id_file, tenHang);
+				printf("1. Ten hang:\t\t%s\n", tenHang);
+				printf("2. Han dung:\t\t%s\n", hanDung);
+				printf("3. Cong ty san xuat:\t%s\n", congTySanXuat);
+				printf("4. Loai hang:\t\t%s\n", loaiHang);
+				printf("5. Nam san xuat:\t\t%d\n", namSanXuat);
+				printf("6. So luong:\t\t%d\n", soLuong);
 
 				do {
 					printf("\nNhap so tuong ung truong thong tin can sua: ");
@@ -253,31 +253,49 @@ void MatHang::Sua(FILE* fileMatHang, FILE* file_temp) {
 				fprintf(file_temp, "%s\n", loaiHang);
 				fprintf(file_temp, "%d\n", namSanXuat);
 				fprintf(file_temp, "%d\n", soLuong);
-				scanf_s("%c", &confirm, 1);
-				while (getchar() != '\n');
-				while (confirm != 'y' && confirm != 'Y' && confirm != 'n' && confirm != 'N') {
-					printf("\nLua chon khong hop le. Vui long nhap Y de tiep tuc hoac N de ket thuc.\n");
-					scanf_s("%c", &confirm, 1);
-					while (getchar() != '\n');
-				}
-
-				if (confirm == 'Y' || confirm == 'y') {
-					printf("\nXoa thanh cong ma hang [%s - %s]\n\n", id_file, tenHang);
-				}
-				else {
-					printf("\n");
-					fprintf(file_temp, "%s\n", id_file);
-					fprintf(file_temp, "%s\n", tenHang);
-					fprintf(file_temp, "%s\n", hanDung);
-					fprintf(file_temp, "%s\n", congTySanXuat);
-					fprintf(file_temp, "%s\n", loaiHang);
-					fprintf(file_temp, "%d\n", namSanXuat);
-					fprintf(file_temp, "%d\n", soLuong);
-				}
 			}
 		}
 
 		if (found == 0) printf("\nMa mat hang khong hop le.\n\n");
+	}
+}
+
+void MatHang::TimKiem(FILE* fileMatHang) {
+	char tuKhoa[100];
+	char id_file[100];
+	bool found = 0;
+	printf("Nhap tu khoa tim kiem (ma, ten hoac cong ty san xuat): ");
+	gets_s(tuKhoa);
+	tuKhoa[strcspn(tuKhoa, "\n")] = 0;
+	if (fileMatHang != NULL) {
+		rewind(fileMatHang);
+		while (fgets(id_file, MAX_LEN, fileMatHang) != NULL) {
+			id_file[strcspn(id_file, "\n")] = 0;
+			fgets(tenHang, MAX_LEN, fileMatHang);
+			tenHang[strcspn(tenHang, "\n")] = 0;
+			fgets(hanDung, MAX_LEN, fileMatHang);
+			hanDung[strcspn(hanDung, "\n")] = 0;
+			fgets(congTySanXuat, MAX_LEN, fileMatHang);
+			congTySanXuat[strcspn(congTySanXuat, "\n")] = 0;
+			fgets(loaiHang, MAX_LEN, fileMatHang);
+			loaiHang[strcspn(loaiHang, "\n")] = 0;
+			fscanf_s(fileMatHang, "%d", &namSanXuat);
+			fgetc(fileMatHang);
+			fscanf_s(fileMatHang, "%d", &soLuong);
+			fgetc(fileMatHang);
+			if (strcmp(tuKhoa, id_file) == 0 || strcmp(tuKhoa, tenHang) == 0 || strcmp(tuKhoa, congTySanXuat) == 0) {
+				found = 1;
+				printf("Ma hang:\t\t%s\n", id_file);
+				printf("Ten hang:\t\t%s\n", tenHang);
+				printf("Han dung:\t\t%s\n", hanDung);
+				printf("Cong ty san xuat:\t%s\n", congTySanXuat);
+				printf("Loai hang:\t\t%s\n", loaiHang);
+				printf("Nam san xuat:\t\t%d\n", namSanXuat);
+				printf("So luong:\t\t%d\n", soLuong);
+				break;
+			}
+		}
+		if (found == 0) printf("\nKhong tim thay mat hang phu hop!\n\n");
 	}
 }
 

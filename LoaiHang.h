@@ -12,6 +12,7 @@ public:
 	static bool kiemTraLoaiHangTonTai(const char* maLoaiHang);
 	void Xoa(FILE* fileMatHang, FILE* file_temp);
 	void Sua(FILE* fileMatHang, FILE* file_temp);
+	void TimKiem(FILE* fileMatHang);
 };
 
 
