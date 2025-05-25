@@ -9,7 +9,7 @@ void CuaHang::Them(FILE* file, int loai) {
 		fopen_s(&fRead, "MatHang.txt", "rt");
 
 		if (fRead != NULL) {
-			Doc(fRead);
+			Doc(fRead, loai);
 			fclose(fRead);
 		}
 
@@ -30,7 +30,7 @@ void CuaHang::Them(FILE* file, int loai) {
 		fopen_s(&fRead, "LoaiHang.txt", "rt");
 
 		if (fRead != NULL) {
-			Doc(fRead);
+			Doc(fRead, loai);
 			fclose(fRead);
 		}
 
@@ -48,28 +48,51 @@ void CuaHang::Them(FILE* file, int loai) {
 	}
 }
 
-void CuaHang::Doc(FILE* file) {
-	soLuongMatHang = 0;
-
-	while (true) {
-		MatHang* mh = new MatHang();
-		mh->docFile(file);
-
-		if (feof(file)) {
-			delete mh;
-			break;
+void CuaHang::Doc(FILE* file, int loai) {
+	BaseObject* doiTuongDoc;
+	if (loai == 1) {
+		soLuongMatHang = 0;
+		while (true) {
+			doiTuongDoc = new MatHang();
+			doiTuongDoc->docFile(file);
+			if (feof(file)) {
+				delete doiTuongDoc;
+				break;
+			}
+			matHang[soLuongMatHang] = (MatHang*)doiTuongDoc;
+			soLuongMatHang++;
 		}
-
-		matHang[soLuongMatHang] = mh;
-		soLuongMatHang++;
+	}
+	else if (loai == 2) {
+		soLuongLoaiHang = 0;
+		while (true) {
+			doiTuongDoc = new LoaiHang();
+			doiTuongDoc->docFile(file);
+			if (feof(file)) {
+				delete doiTuongDoc;
+				break;
+			}
+			loaiHang[soLuongLoaiHang] = (LoaiHang*)doiTuongDoc;
+			soLuongLoaiHang++;
+		}
 	}
 }
 
 
-void CuaHang::Xuat() {
-	for (int i = 0; i < soLuongMatHang; i++) {
-		matHang[i]->xuatMatHang();
-		printf("\n");
+void CuaHang::XemDanhSach(int loai, FILE* file) {
+	if (loai == 1) {
+		Doc(file, loai);
+		for (int i = 0; i < soLuongMatHang; i++) {
+			matHang[i]->XemDanhSach();
+			printf("\n");
+		}
+	}
+	else if (loai == 2) {
+		Doc(file, loai);
+		for (int i = 0; i < soLuongLoaiHang; i++) {
+			loaiHang[i]->XemDanhSach();
+			printf("\n");
+		}
 	}
 }
 

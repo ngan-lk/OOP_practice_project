@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void MatHang::xuatMatHang() {
+void MatHang::XemDanhSach() {
 	printf("Ma hang:\t\t%s\n", getId());
 	printf("Ten hang:\t\t%s\n", tenHang);
 	printf("Han dung:\t\t%s\n", hanDung);
@@ -291,7 +291,7 @@ void MatHang::TimKiem(FILE* fileMatHang) {
 				printf("Cong ty san xuat:\t%s\n", congTySanXuat);
 				printf("Loai hang:\t\t%s\n", loaiHang);
 				printf("Nam san xuat:\t\t%d\n", namSanXuat);
-				printf("So luong:\t\t%d\n", soLuong);
+				printf("So luong:\t\t%d\n\n", soLuong);
 				break;
 			}
 		}

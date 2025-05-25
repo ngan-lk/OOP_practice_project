@@ -96,7 +96,11 @@ int main()
 				}
 				break;
 			case 5:
-				printf("5. Xem danh sach mat hang\n");
+				fopen_s(&fileMatHang, "MatHang.txt", "rt");
+				if (fileMatHang != NULL) {
+					cuaHang->XemDanhSach(1, fileMatHang);
+					fclose(fileMatHang);
+				}
 				break;
 			case 0:
 				continue;
@@ -152,10 +156,18 @@ int main()
 				}
 				break;
 			case 4:
-				printf("4. Tim kiem mat hang\n");
+				fopen_s(&fileLoaiHang, "LoaiHang.txt", "rt");
+				if (fileLoaiHang != NULL) {
+					cuaHang->TimKiem(fileLoaiHang, 2);
+					fclose(fileLoaiHang);
+				}
 				break;
 			case 5:
-				printf("5. Xem danh sach mat hang\n");
+				fopen_s(&fileLoaiHang, "LoaiHang.txt", "rt");
+				if (fileLoaiHang != NULL) {
+					cuaHang->XemDanhSach(2, fileLoaiHang);
+					fclose(fileLoaiHang);
+				}
 				break;
 			case 0:
 				continue;

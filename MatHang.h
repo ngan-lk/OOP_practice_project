@@ -12,7 +12,7 @@ private:
 	int namSanXuat;
 	int soLuong;
 public:
-	void xuatMatHang();
+	void XemDanhSach();
 	void docFile(FILE* file);
 	void Xoa(FILE* fileMatHang, FILE* file_temp);
 	bool Them(FILE* fileMatHang);

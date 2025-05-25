@@ -11,8 +11,8 @@ private:
 	int soLuongLoaiHang;
 public:
 	void Them(FILE* file, int loai);
-	void Doc(FILE* file);
-	void Xuat();
+	void Doc(FILE* file, int loai);
+	void XemDanhSach(int loai, FILE* file);
 	void Xoa(FILE* file, FILE* file_temp, int loai);
 	void Sua(FILE* file, FILE* file_temp, int loai);
 	void TimKiem(FILE* file, int loai);

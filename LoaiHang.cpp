@@ -162,7 +162,31 @@ void LoaiHang::Sua(FILE* fileLoaiHang, FILE* file_temp) {
 	}
 }
 
-void LoaiHang::TimKiem(FILE* fileMatHang) {
+void LoaiHang::TimKiem(FILE* fileLoaiHang) {
+	char tuKhoa[100];
+	char id_file[100];
+	bool found = 0;
+	printf("Nhap tu khoa tim kiem (ma hoac ten loai hang): ");
+	gets_s(tuKhoa);
+	tuKhoa[strcspn(tuKhoa, "\n")] = 0;
+	if (fileLoaiHang != NULL) {
+		rewind(fileLoaiHang);
+		while (fgets(id_file, MAX_LEN, fileLoaiHang) != NULL) {
+			id_file[strcspn(id_file, "\n")] = 0;
+			fgets(tenLoaiHang, MAX_LEN, fileLoaiHang);
+			tenLoaiHang[strcspn(tenLoaiHang, "\n")] = 0;
+			if (strcmp(tuKhoa, id_file) == 0 || strcmp(tuKhoa, tenLoaiHang) == 0) {
+				found = 1;
+				printf("Ma loai hang:\t\t%s\n", id_file);
+				printf("Ten loai hang:\t\t%s\n\n", tenLoaiHang);
+				break;
+			}
+		}
+		if (found == 0) printf("\nKhong tim thay loai hang phu hop!\n\n");
+	}
+}
 
-
+void LoaiHang::XemDanhSach() {
+	printf("Ma loai hang:\t\t%s\n", getId());
+	printf("Ten loai hang:\t\t%s\n", tenLoaiHang);
 }
