@@ -36,6 +36,9 @@
     <ClCompile Include="BaseInvoice.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HoaDonBanHang.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utils.h">
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BaseInvoice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HoaDonBanHang.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -4,6 +4,7 @@
 void CuaHang::Them(FILE* file, int loai) {
 	FILE* fRead = NULL;
 	BaseObject* doiTuongThem;
+	BaseInvoice* hoaDon;
 
 	if (loai == 1) {
 		fopen_s(&fRead, "MatHang.txt", "rt");
@@ -45,6 +46,21 @@ void CuaHang::Them(FILE* file, int loai) {
 		else {
 			printf("Danh sach day, khong the them mat hang moi!\n");
 		}
+	}
+	else if (loai == 3) {
+		hoaDon = new HoaDonBanHang();
+		hoaDon->TaoHoaDon(file);
+		char choice;
+		do {
+			printf("Them mat hang vao hoa don:\n");
+			hoaDon->Them(file);
+			HDBH[soLuongHDBH] = (HoaDonBanHang*)hoaDon;
+			soLuongHDBH++;
+			printf("Tiep tuc them mat hang? (Y/N): ");
+			scanf_s("%c", &choice, 1);
+			while (getchar() != '\n');
+		} while (choice == 'y' || choice == 'Y');
+		printf("Da them hoa don ban hang moi va luu file thanh cong!\n\n");
 	}
 }
 

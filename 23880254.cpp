@@ -19,6 +19,7 @@ int main()
 	FILE* fileMatHang_temp;
 	FILE* fileLoaiHang;
 	FILE* fileLoaiHang_temp;
+	FILE* fileHDBH;
 
 	do {
 		system("cls");
@@ -176,7 +177,47 @@ int main()
 			}
 			break;
 		case 3:
-			printf("3. Quan ly hoa don ban hang\n\n");
+			system("cls");
+			printf("========QUAN LY HOA DON BAN HANG========\n\n");
+			printf("1. Them hoa don ban hang\n");
+			printf("2. Xoa hoa don ban hang\n");
+			printf("3. Sua hoa don ban hang\n");
+			printf("4. Tim kiem hoa don ban hang\n");
+			printf("5. Xem danh sach hoa don ban hang\n");
+			printf("0. Quay lai\n\n");
+			printf("=============================\n\n");
+			printf("Chon chuc nang: ");
+			scanf_s("%d", &subChoice);
+			while (getchar() != '\n');
+			printf("\n");
+
+			switch (subChoice) {
+			case 1:
+				fopen_s(&fileHDBH, "HDBH.txt", "at");
+
+				if (fileHDBH != NULL) {
+					cuaHang->Them(fileHDBH, 3);
+					fclose(fileHDBH);
+				}
+
+				break;
+			case 2:
+				
+				break;
+			case 3:
+				
+				break;
+			case 4:
+				
+				break;
+			case 5:
+				
+				break;
+			case 0:
+				continue;
+			default:
+				printf("Lua chon khong hop le!");
+			}
 			break;
 		case 4:
 			printf("4. Quan ly hoa don nhap hang\n\n");

@@ -19,7 +19,7 @@
 const char* BaseInvoice::taoSoHoaDon(FILE* file, const char* prefix) {
     rewind(file);
     int soLuongHoaDon = 0;
-    char* soHoaDonTao;
+    char soHoaDonTao[100];
 
     while (fgets(soHoaDon, MAX_LEN, file) != NULL) {
         soHoaDon[strcspn(soHoaDon, "\n")] = 0;
@@ -27,7 +27,7 @@ const char* BaseInvoice::taoSoHoaDon(FILE* file, const char* prefix) {
         ngayHoaDon[strcspn(ngayHoaDon, "\n")] = 0;
         fgets(maHang, MAX_LEN, file);
         maHang[strcspn(maHang, "\n")] = 0;
-        fscanf_s(file, "%d", &soLuong);
+        fscanf_s(file, "%d", &soLuongBan);
         fgetc(file);
         fscanf_s(file, "%d", &soTien);
         fgetc(file);

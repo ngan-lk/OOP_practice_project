@@ -127,6 +127,7 @@
     <ClCompile Include="BaseInvoice.cpp" />
     <ClCompile Include="BaseObject.cpp" />
     <ClCompile Include="CuaHang.cpp" />
+    <ClCompile Include="HoaDonBanHang.cpp" />
     <ClCompile Include="LoaiHang.cpp" />
     <ClCompile Include="MatHang.cpp" />
     <ClCompile Include="Utils.cpp" />
@@ -135,6 +136,7 @@
     <ClInclude Include="BaseInvoice.h" />
     <ClInclude Include="BaseObject.h" />
     <ClInclude Include="CuaHang.h" />
+    <ClInclude Include="HoaDonBanHang.h" />
     <ClInclude Include="LoaiHang.h" />
     <ClInclude Include="MatHang.h" />
     <ClInclude Include="Utils.h" />
